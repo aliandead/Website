@@ -39,8 +39,8 @@ const onUpdate = () => {
       <RouterLink to="/">
         <h1>Liam/DEV</h1>
       </RouterLink>
+      <div id="mobile-navbar-button" v-show="webGlobalNavigation" />
     </div>
-    <div id="mobile-navbar-button" v-show="webGlobalNavigation" />
     <ul id="mobile-navbar-items">
       <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/blogs">Blogs</RouterLink></li>
@@ -50,9 +50,9 @@ const onUpdate = () => {
     </ul>
     <RouterView @vue:updated="onUpdate" />
     <div class="footer">
-      <RouterLink to="/legal-notice">Legal Notice</RouterLink>
+      <RouterLink to="/legal">Legal</RouterLink>
       -
-      <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
+      <RouterLink to="/privacy">Privacy Policy</RouterLink>
     </div>
   </div>
   <div class="particles">
@@ -109,6 +109,7 @@ const onUpdate = () => {
   border-radius: $borderMedium;
   background-color: $backgroundColor;
   align-items: center;
+  justify-content: space-between;
   display: none;
 }
 
@@ -121,8 +122,6 @@ const onUpdate = () => {
   width: 64px;
   height: 64px;
   margin: 16px;
-  position: absolute;
-  align-self: flex-end;
   background-color: white;
   border-radius: 64px;
   display: none;

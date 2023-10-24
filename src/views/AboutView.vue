@@ -1,5 +1,5 @@
 <script setup>
-import { setParam } from '../global';
+import { setParam } from "@/global";
 setParam("globalNavigation", true);
 </script>
 

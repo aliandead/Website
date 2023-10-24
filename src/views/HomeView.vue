@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { setParam } from '../global';
+import { setParam } from "@/global";
 setParam("globalNavigation", false);
 </script>
 

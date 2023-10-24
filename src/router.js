@@ -5,6 +5,8 @@ import BlogListView from "@/views/BlogListView.vue";
 import ProjectListView from "@/views/ProjectListView.vue";
 import ServiceView from "@/views/ServiceView.vue";
 import AboutView from "@/views/AboutView.vue";
+import LegalView from "@/views/LegalView.vue";
+import PrivacyView from "@/views/PrivacyView.vue";
 
 const routes = [
   {
@@ -31,6 +33,16 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView
+  },
+  {
+    path: "/legal",
+    name: "legal",
+    component: LegalView
+  },
+  {
+    path: "/privacy",
+    name: "privacy",
+    component: PrivacyView
   }
 ];
 
