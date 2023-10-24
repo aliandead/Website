@@ -7,6 +7,7 @@ import ServiceView from "@/views/ServiceView.vue";
 import AboutView from "@/views/AboutView.vue";
 import LegalView from "@/views/LegalView.vue";
 import PrivacyView from "@/views/PrivacyView.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: "/privacy",
     name: "privacy",
     component: PrivacyView
+  },
+  {
+      "path": "/:catchAll(.*)",
+      "name": "not-found",
+      "component": NotFoundView
   }
 ];
 

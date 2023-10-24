@@ -6,9 +6,9 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
-            <h1>Notice</h1>
-            <p>Paid services aren't available at the moment.</p>
-            <p>If you have a request, please send it at <a href="mailto:contact@example.com">contact@example.com</a></p>
+            <h1>404 - Not Found</h1>
+            <p>Looks like the page you requested isn't available!</p>
+            <p>¯\_(ツ)_/¯</p>
         </div>
     </div>
 </template>

@@ -5,7 +5,6 @@ setParam("globalNavigation", true);
 
 <template>
     <div id="container">
-        <h1>Hello World</h1>
     </div>
 </template>
 

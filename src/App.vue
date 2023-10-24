@@ -4,6 +4,8 @@ import { RouterLink, RouterView } from "vue-router";
 import { getParam } from "./global";
 
 const webGlobalNavigation = ref(false);
+const webGlobalFooter = ref(false);
+const webShowParticles = ref(false);
 
 onMounted(() => {
   const mobileNavButton = document.getElementById("mobile-navbar-button");
@@ -16,6 +18,9 @@ onMounted(() => {
       mobileNavigation.style.display = "block";
     }
   });
+
+  webGlobalFooter.value = getParam("globalFooter");
+  webShowParticles.value = getParam("showParticles");
 });
 
 const onUpdate = () => {
@@ -49,13 +54,13 @@ const onUpdate = () => {
       <li><RouterLink to="/about">About</RouterLink></li>
     </ul>
     <RouterView @vue:updated="onUpdate" />
-    <div class="footer">
+    <div class="footer" v-show="webGlobalFooter">
       <RouterLink to="/legal">Legal</RouterLink>
       -
       <RouterLink to="/privacy">Privacy Policy</RouterLink>
     </div>
   </div>
-  <div class="particles">
+  <div class="particles" v-show="webShowParticles">
     <div class="circle-container" v-for="i in 100" :key="i">
       <div class="circle"></div>
     </div>

@@ -1,21 +1,27 @@
 // Common transition duration
 $transitionDuration: 0.25s;
 
+// Common shadow
 $shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
 
+// Common colors
 $backgroundColor: #000000bf;
 $linkColor: #4169e1;
 
-$LDColor: #808080;
+$LDColor: #c0c0c0;
 $titleColor: #fff;
 $commonColor: #f0f0f0;
 
+// Navigation bar height
 $mobileNavHeight: 92px;
 
+// Common border
 $borderMedium: 0 0 16px 16px;
 
+// Common font size description
 $fontDescription: 24px;
 
+// Common used properties
 h4, h5, h6 {
     font-weight: normal;
 }
