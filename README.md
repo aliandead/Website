@@ -1,6 +1,6 @@
 # Liam/DEV (Alian/DEAD) - Website
 
-<img src="github/showcase.jpeg">
+<img src="github/showcase.png">
 
 ## Recommended IDE Setup
 
