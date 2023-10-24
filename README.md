@@ -25,3 +25,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+## Copyright
+&copy; Liam/DEV (Alian/DEAD). All rights reserved.
