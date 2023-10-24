@@ -19,6 +19,12 @@ onMounted(() => {
     }
   });
 
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 750) {
+      mobileNavigation.style.display = "none";
+    } 
+  });
+
   webGlobalFooter.value = getParam("globalFooter");
   webShowParticles.value = getParam("showParticles");
 });
