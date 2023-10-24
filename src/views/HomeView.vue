@@ -7,9 +7,10 @@ setParam("globalNavigation", false);
 <template>
     <div id="home-container">
         <div class="content">
-            <h1 class="title">Liam/DEV</h1>
+            <RouterLink to="/">
+                <h1 class="title">Liam/DEV</h1>
+            </RouterLink>
             <div class="navbar">
-                <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/blogs">Blogs</RouterLink>
                 <RouterLink to="/projects">Projects</RouterLink>
                 <RouterLink to="/services">Services</RouterLink>
@@ -20,16 +21,18 @@ setParam("globalNavigation", false);
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/styles/common.scss";
+
 .content {
     text-align: center;
 }
 
 .title {
     font-size: 128px;
-    color: gray;
+    color: $LDColor;
 
-    transition: 0.25s;
+    transition: $transitionDuration;
 }
 
 .navbar {
@@ -38,29 +41,20 @@ setParam("globalNavigation", false);
 
 .navbar a {
     font-size: 32px;
-    text-decoration: none;
- 
+
     margin-left: 8px;
     margin-right: 8px;
-
-    color: white;
-
-    transition: 0.25s;
-}
-
-.navbar a:focus {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
 }
 
 .navbar a:hover {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+    text-shadow: $shadow;
 }
 
 .description {
-    font-size: 24px;
-    color: rgb(240, 240, 240);
+    font-size: $fontDescription;
+    color: $commonColor;
 
-    transition: 0.25s;
+    transition: $transitionDuration;
 }
 
 @media screen and (max-width: 650px) {

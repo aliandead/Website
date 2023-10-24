@@ -4,9 +4,10 @@
 }
 
 body {
-  background: url("/static/Shine_BG_HighSpeed_Darkened.webp");
+  background: url("/static/redlight_a_night.png");
+  background-color: black;
   background-size: cover;
   background-attachment: fixed;
-
+ 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -9,5 +9,6 @@ setParam("globalNavigation", true);
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/styles/common.scss";
 </style>

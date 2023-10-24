@@ -1,0 +1,27 @@
+// Common transition duration
+$transitionDuration: 0.25s;
+
+$shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+
+$backgroundColor: #000000bf;
+$linkColor: #4169e1;
+
+$LDColor: #808080;
+$titleColor: #fff;
+$commonColor: #f0f0f0;
+
+$mobileNavHeight: 92px;
+
+$borderMedium: 0 0 16px 16px;
+
+$fontDescription: 24px;
+
+h4, h5, h6 {
+    font-weight: normal;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: $transitionDuration;
+}

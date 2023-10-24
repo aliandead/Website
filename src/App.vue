@@ -1,20 +1,53 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 import { getParam } from "./global";
 
 const webGlobalNavigation = ref(false);
 
+onMounted(() => {
+  const mobileNavButton = document.getElementById("mobile-navbar-button");
+  const mobileNavigation = document.getElementById("mobile-navbar-items");
+
+  mobileNavButton.addEventListener("click", () => {
+    if (mobileNavigation.style.display == "block") {
+      mobileNavigation.style.display = "none";
+    } else {
+      mobileNavigation.style.display = "block";
+    }
+  });
+});
+
 const onUpdate = () => {
   webGlobalNavigation.value = getParam("globalNavigation");
+
+  const mobileNavigation = document.getElementById("mobile-navbar-items");
+  mobileNavigation.style.display = "none";
 }
 </script>
 
 <template>
   <div id="master">
-    <div id="default-navbar" v-if="webGlobalNavigation">
-
+    <div id="default-navbar" v-show="webGlobalNavigation">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/blogs">Blogs</RouterLink>
+      <RouterLink to="/projects">Projects</RouterLink>
+      <RouterLink to="/services">Services</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
     </div>
+    <div id="mobile-navbar" v-show="webGlobalNavigation">
+      <RouterLink to="/">
+        <h1>Liam/DEV</h1>
+      </RouterLink>
+    </div>
+    <div id="mobile-navbar-button" v-show="webGlobalNavigation" />
+    <ul id="mobile-navbar-items">
+      <li><RouterLink to="/">Home</RouterLink></li>
+      <li><RouterLink to="/blogs">Blogs</RouterLink></li>
+      <li><RouterLink to="/projects">Projects</RouterLink></li>
+      <li><RouterLink to="/services">Services</RouterLink></li>
+      <li><RouterLink to="/about">About</RouterLink></li>
+    </ul>
     <RouterView @vue:updated="onUpdate" />
     <div class="footer">
       <RouterLink to="/legal-notice">Legal Notice</RouterLink>
@@ -30,6 +63,8 @@ const onUpdate = () => {
 </template>
 
 <style scoped lang="scss">
+@import "@/styles/common.scss";
+
 #master {
   display: flex;
   flex-direction: column;
@@ -47,20 +82,94 @@ const onUpdate = () => {
   justify-content: center;
 }
 
+#default-navbar {
+  background: $backgroundColor;
+  padding: 24px 64px 24px 64px;
+  border-radius: $borderMedium;
+  align-self: center;
+}
+
+#default-navbar a {
+  margin-left: 24px;
+  margin-right: 24px;
+  font-size: $fontDescription;
+}
+
+#default-navbar a:hover {
+  text-shadow: $shadow;
+}
+
+#default-navbar .router-link-active {
+  text-shadow: $shadow;
+}
+
+#mobile-navbar {
+  height: $mobileNavHeight;
+  width: 100%;
+  border-radius: $borderMedium;
+  background-color: $backgroundColor;
+  align-items: center;
+  display: none;
+}
+
+#mobile-navbar h1 {
+  margin-left: 24px;
+  color: $LDColor;
+}
+
+#mobile-navbar-button {
+  width: 64px;
+  height: 64px;
+  margin: 16px;
+  position: absolute;
+  align-self: flex-end;
+  background-color: white;
+  border-radius: 64px;
+  display: none;
+}
+
+#mobile-navbar-items {
+  align-self: center;
+  width: 95%;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  margin-top: 100px;
+  background-color: $backgroundColor;
+  border-radius: 16px;
+  display: none;
+}
+
+#mobile-navbar-items li {
+  text-align: center;
+  padding: 12px;
+}
+
+#mobile-navbar-items li a:hover {
+  text-shadow: $shadow;
+}
+
+#mobile-navbar-items li .router-link-active {
+  text-shadow: $shadow;
+}
+
+@media screen and (max-width: 750px) {
+  #default-navbar {
+    display: none;
+  }
+
+  #mobile-navbar {
+    display: flex;
+  }
+
+  #mobile-navbar-button {
+    display: block;
+  }
+}
+
 .footer {
   text-align: center;
   color: dimgray;
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
-
-  transition: 0.25s;
-}
-
-.footer a:focus {
-  color: gray;
 }
 
 .footer a:hover {
@@ -75,9 +184,9 @@ const onUpdate = () => {
   height: 100%;
   overflow: hidden;
   z-index: -1;
-  // pointer-events: none;
 }
 
+// Particle animation
 .circle-container {
 
   $particleWidth: 10;
@@ -127,7 +236,8 @@ const onUpdate = () => {
     }
   }
 
-  @for $i from 1 through $particleNum { &:nth-child(#{$i}) {
+  @for $i from 1 through $particleNum {
+    &:nth-child(#{$i}) {
       $circleSize: random($particleWidth);
       width: $circleSize + px;
       height: $circleSize + px;
