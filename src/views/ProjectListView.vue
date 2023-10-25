@@ -1,6 +1,27 @@
 <script setup>
 import { setParam } from "@/global";
 import Projects from "@/assets/projects.json";
+import { onMounted, ref } from "vue";
+
+onMounted(() => {
+    const projectBanners = document.getElementsByClassName("project-item-banner");
+    for (const banner of projectBanners) {
+        banner.addEventListener("load", () => {
+            banner.setAttribute("style", "display: block;");
+            banner.parentNode.getElementsByClassName("project-banner-placeholder")[0]
+                             .setAttribute("style", "display: none;");
+        });
+    }
+
+    const projectIcons = document.getElementsByClassName("project-item-icon");
+    for (const icon of projectIcons) {
+        icon.addEventListener("load", () => {
+            icon.setAttribute("style", "display: block;");
+            icon.parentNode.getElementsByClassName("project-icon-placeholder")[0]
+                           .setAttribute("style", "display: none;");
+        });
+    }
+});
 
 setParam("globalNavigation", true);
 </script>
@@ -13,7 +34,7 @@ setParam("globalNavigation", true);
                 <div class="project" v-for="(item, i) in Projects" :key="i">
                 <div class="project-item">
                     <div class="project-head">
-                        <svg class="project-item-banner" width="325" height="125">
+                        <svg class="project-item-svg" width="325" height="125">
                             <defs>
                                 <mask id="through">
                                     <rect width="100%" height="100%" fill="white" />
@@ -26,8 +47,11 @@ setParam("globalNavigation", true);
                                     <use xlink:href="#rounded"/>
                                 </clipPath>
                             </defs>
-                            <image :href="item.banner" width="325" height="98" mask="url(#through)" />
-                            <image :href="item.icon" width="96" height="96" x="24" y="24" clip-path="url(#rounded-clip)"/>
+
+                            <image class="project-item-banner" :href="item.banner" width="325" height="98" mask="url(#through)" style="display: none;"/>
+                            <rect class="project-banner-placeholder" width="325" height="98" fill="#000000" mask="url(#through)" />
+                            <image class="project-item-icon" :href="item.icon" width="96" height="96" x="24" y="24" clip-path="url(#rounded-clip)" style="display: none;"/>
+                            <rect class="project-icon-placeholder" width="96" height="96" x="24" y="24" rx="64" fill="#000000"/>
                         </svg>
                     </div>
                     <h3 class="project-item-title">{{ item.name }}</h3>
@@ -41,6 +65,13 @@ setParam("globalNavigation", true);
         </div>
     </div>
 </template>
+
+<style>
+image {
+    
+}
+
+</style>
 
 <style scoped lang="scss">
 @import "@/styles/common.scss";
@@ -74,7 +105,7 @@ setParam("globalNavigation", true);
     border-radius: 16px;
 }
 
-.project-item-banner {
+.project-item-svg {
     border-radius: 16px 16px 0 0;
 }
 
