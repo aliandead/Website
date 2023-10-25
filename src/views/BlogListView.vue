@@ -12,7 +12,7 @@ setParam("globalNavigation", true);
     <div id="container">
         <div class="content">
             <h1>Available Blogs</h1>
-            <div class="blog" v-for="(item, i) in Blogs" :key="item.id">
+            <div class="blog" v-for="(item, i) in Blogs" :key="i">
                 <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: i } }">
                     <div class="blog-item-details">
                         <h3 class="blog-item-title">{{ item.title }}</h3>
@@ -94,7 +94,6 @@ setParam("globalNavigation", true);
 .blog-item-tags h4 {
     color: white;
     background-color: rgba(255, 255, 255, 0.125);
-    width: max-content;
     margin-right: 0.5rem;
     padding: 0.25rem;
     border-radius: 4px;

@@ -13,3 +13,11 @@ body {
  
   font-family: "Segoe UI", "Tahoma", "Geneva", "Verdana", "sans-serif";
 }
+
+@media screen and (max-width: 350px) 
+{
+   html,
+   body {
+    min-width: 350px;
+  } 
+}
