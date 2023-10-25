@@ -20,15 +20,19 @@ setParam("globalNavigation", true);
                                     <rect x="20" y="20" width="105" height="105" rx="64" fill="black" />
                                 </mask>
                             </defs>
+                            <defs>
+                                <rect id="rounded" rx="64" width="96" height="96" x="24" y="24"/>
+                                <clipPath id="rounded-clip">
+                                    <use xlink:href="#rounded"/>
+                                </clipPath>
+                            </defs>
                             <image :href="item.banner" width="325" height="98" mask="url(#through)" />
-                            <rect rx="64" width="96" height="96" x="24" y="24">
-                                <image :href="item.icon" width="96" height="96"/>
-                            </rect>
+                            <image :href="item.icon" width="96" height="96" x="24" y="24" clip-path="url(#rounded-clip)"/>
                         </svg>
                     </div>
                     <h3 class="project-item-title">{{ item.name }}</h3>
                     <h4 class="project-item-desc">{{ item.desc }}</h4>
-                    <RouterLink class="project-item-details" :to="{ path: 'projects/details', query: { pid: i } }">
+                    <RouterLink class="project-item-details" :to="{ path: 'project/details', query: { pid: i } }">
                         View details
                     </RouterLink>
                 </div>
@@ -71,7 +75,7 @@ setParam("globalNavigation", true);
 }
 
 .project-item-banner {
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
 }
 
 .project-item h3 {

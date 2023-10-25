@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import HomeView from "@/views/HomeView.vue";
 import BlogListView from "@/views/BlogListView.vue";
+import BlogDetailsView from "@/views/BlogDetailsView.vue";
 import ProjectListView from "@/views/ProjectListView.vue";
+import ProjectDetailsView from "@/views/ProjectDetailsView.vue";
 import ServiceView from "@/views/ServiceView.vue";
 import AboutView from "@/views/AboutView.vue";
 import LegalView from "@/views/LegalView.vue";
@@ -21,9 +23,19 @@ const routes = [
     component: BlogListView
   },
   {
+    path: "/blog/view",
+    name: "blog-view",
+    component: BlogDetailsView
+  },
+  {
     path: "/projects",
     name: "project-list",
     component: ProjectListView
+  },
+  {
+    path: "/project/details",
+    name: "project-details",
+    component: ProjectDetailsView
   },
   {
     path: "/services",
