@@ -8,7 +8,7 @@ setParam("globalNavigation", true);
         <div class="content">
             <h1>About</h1>
             <p>I'm a french developer with over 4 years of experience.</p>
-            <h4>Background: <a href="https://www.flickr.com/photos/117317408@N03/13445568174/" target="_blank">Redlight A Night</a> by <a href="https://instagram.com/billypwoodford" target="_blank">Billy Woodford</a> - <a href="https://youtube.com/@nocopyrightsounds" target="_blank">NCS</a> Founder</h4>
+            <h2>Background: <a href="https://www.flickr.com/photos/117317408@N03/13445568174/" target="_blank">Redlight A Night</a> by <a href="https://instagram.com/billypwoodford" target="_blank">Billy Woodford</a> - <a href="https://youtube.com/@nocopyrightsounds" target="_blank">NCS</a> Founder</h2>
         </div>
     </div>
 </template>
@@ -34,8 +34,10 @@ h1 {
     color: $titleColor;
 }
 
-h4 {
+h2 {
     margin-top: 16px;
+    font-size: 16px;
+    font-weight: 400;
     color: white;
 }
 

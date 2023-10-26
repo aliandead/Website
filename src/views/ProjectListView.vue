@@ -29,7 +29,7 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
-            <h1>Project Discovery</h1>
+            <h1 class="title">Project Discovery</h1>
             <div class="project-container">
                 <div class="project" v-for="(item, i) in Projects" :key="i">
                 <div class="project-item">
@@ -54,8 +54,8 @@ setParam("globalNavigation", true);
                             <rect class="project-icon-placeholder" width="96" height="96" x="24" y="24" rx="64" fill="#000000"/>
                         </svg>
                     </div>
-                    <h3 class="project-item-title">{{ item.name }}</h3>
-                    <h4 class="project-item-desc">{{ item.desc }}</h4>
+                    <h1 class="project-item-title">{{ item.name }}</h1>
+                    <h2 class="project-item-desc">{{ item.desc }}</h2>
                     <RouterLink class="project-item-details" :to="{ path: 'project/details', query: { pid: i } }">
                         View details
                     </RouterLink>
@@ -81,7 +81,7 @@ image {
     justify-content: center;
 }
 
-.content h1 {
+.title {
     color: $titleColor;
     text-align: center;
     padding: 32px;
@@ -109,13 +109,13 @@ image {
     border-radius: 16px 16px 0 0;
 }
 
-.project-item h3 {
+.project-item-title {
     font-size: 32px;
     margin-left: 12.5px;
     color: white;
 }
 
-.project-item h4 {
+.project-item-desc {
     max-width: 300px;
     word-wrap: break-word;
 
@@ -126,6 +126,9 @@ image {
 
     color: white;
     text-align: justify;
+
+    font-weight: 400;
+    font-size: 16px;
 
     margin-left: 12.5px;
     margin-right: 12.5px;

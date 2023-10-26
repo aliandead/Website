@@ -11,14 +11,14 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
-            <h1>Available Blogs</h1>
+            <h1 class="title">Available Blogs</h1>
             <div class="blog" v-for="(item, i) in Blogs" :key="i">
                 <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: i } }">
                     <div class="blog-item-details">
-                        <h3 class="blog-item-title">{{ item.title }}</h3>
-                        <h4 class="blog-item-desc">{{ item.desc }}</h4>
+                        <h1 class="blog-item-title">{{ item.title }}</h1>
+                        <h2 class="blog-item-desc">{{ item.desc }}</h2>
                         <div class="blog-item-tags">
-                            <h4 v-for="tag in item.tags">{{ tag }}</h4>
+                            <h3 v-for="tag in item.tags">{{ tag }}</h3>
                         </div>
                     </div>
                 </RouterLink>
@@ -39,7 +39,7 @@ setParam("globalNavigation", true);
     justify-content: center;
 }
 
-.content h1 {
+.title {
     color: $titleColor;
     text-align: center;
     padding: 32px;
@@ -71,6 +71,7 @@ setParam("globalNavigation", true);
     max-width: 250px;
 
     color: white;
+    font-size: 1.17em;
     padding-top: 0.5rem;
     padding-left: 1rem;
 }
@@ -82,6 +83,8 @@ setParam("globalNavigation", true);
     max-width: 250px;
 
     color: lightgray;
+    font-size: 16px;
+    font-weight: normal;
     padding-left: 1rem;
 }
 
@@ -91,11 +94,13 @@ setParam("globalNavigation", true);
     padding-left: 1rem;
 }
 
-.blog-item-tags h4 {
+.blog-item-tags h3 {
     color: white;
     background-color: rgba(255, 255, 255, 0.125);
     margin-right: 0.5rem;
     padding: 0.25rem;
+    font-size: 16px;
+    font-weight: 400;
     border-radius: 4px;
 }
 
