@@ -10,16 +10,10 @@ const webShowParticles = ref(false);
 onMounted(() => {
   const mobileNavButton = document.getElementById("mobile-navbar-button");
   const mobileNavbar = document.getElementById("mobile-navbar");
-  const mobileMenu = document.getElementById("mobile-navbar-items");
+  const mobileMenu = document.getElementById("mobile-navbar-mask");
 
   window.addEventListener("click", (e) => {
-    console.log(e);
-
-    if (mobileMenu.style.display != "block") {
-      return;
-    }
-
-    if (e.target.id == "mobile-navbar-button") {
+    if (mobileMenu.style.display != "flex") {
       return;
     }
 
@@ -40,10 +34,10 @@ onMounted(() => {
   });
 
   mobileNavButton.addEventListener("click", () => {
-    if (mobileMenu.style.display == "block") {
+    if (mobileMenu.style.display == "flex") {
       mobileMenu.style.display = "none";
     } else {
-      mobileMenu.style.display = "block";
+      mobileMenu.style.display = "flex";
     }
   });
 
@@ -60,7 +54,7 @@ onMounted(() => {
 const onUpdate = () => {
   webGlobalNavigation.value = getParam("globalNavigation");
 
-  const mobileNavigation = document.getElementById("mobile-navbar-items");
+  const mobileNavigation = document.getElementById("mobile-navbar-mask");
   mobileNavigation.style.display = "none";
 }
 </script>
@@ -85,24 +79,15 @@ const onUpdate = () => {
         </svg>
       </div>
     </div>
-    <div id="mobile-navbar-mask"/>
-    <ul id="mobile-navbar-items">
-      <li>
-        <RouterLink to="/">Home</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/blogs">Blogs</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/projects">Projects</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/services">Services</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/about">About</RouterLink>
-      </li>
-    </ul>
+    <div id="mobile-navbar-mask">
+      <ul id="mobile-navbar-items">
+        <li><RouterLink to="/">Home</RouterLink></li>
+        <li><RouterLink to="/blogs">Blogs</RouterLink></li>
+        <li><RouterLink to="/projects">Projects</RouterLink></li>
+        <li><RouterLink to="/services">Services</RouterLink></li>
+        <li><RouterLink to="/about">About</RouterLink></li>
+      </ul>
+    </div>
     <RouterView @vue:updated="onUpdate" />
     <div class="footer" v-show="webGlobalFooter">
       <RouterLink to="/legal">Legal</RouterLink>
@@ -132,16 +117,17 @@ const onUpdate = () => {
 
 #home-container {
   flex: 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #default-navbar {
-  background: $backgroundColor;
-  padding: 24px 64px 24px 64px;
-  border-radius: $borderMedium;
   align-self: center;
+  background: $backgroundColor;
+  border-radius: $borderMedium;
+  padding: 24px 64px 24px 64px;
 }
 
 #default-navbar a {
@@ -159,14 +145,14 @@ const onUpdate = () => {
 }
 
 #mobile-navbar {
-  z-index: 1;
-  height: $mobileNavHeight;
   width: 100%;
+  height: 92px;
   border-radius: $borderMedium;
   background-color: $backgroundColor;
+  display: none;
   align-items: center;
   justify-content: space-between;
-  display: none;
+  z-index: 1;
 }
 
 #mobile-navbar h1 {
@@ -179,7 +165,6 @@ const onUpdate = () => {
   height: 64px;
   margin: 16px;
   border-radius: 64px;
-  display: none;
 }
 
 #mobile-navbar-button svg {
@@ -189,22 +174,20 @@ const onUpdate = () => {
 
 #mobile-navbar-mask {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
   display: none;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #mobile-navbar-items {
-  display: none;
-  align-self: center;
   position: absolute;
-  list-style: none;
   width: 95%;
-  padding: 0;
   margin-top: 100px;
-  background-color: rgba(0, 0, 0, 0.90);
+  padding: 0;
   border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.90);
 }
 
 #mobile-navbar-items li {
@@ -231,10 +214,6 @@ const onUpdate = () => {
 
   #mobile-navbar {
     display: flex;
-  }
-
-  #mobile-navbar-button {
-    display: block;
   }
 }
 
@@ -336,4 +315,5 @@ const onUpdate = () => {
       }
     }
   }
-}</style>
+}
+</style>
