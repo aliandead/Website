@@ -12,17 +12,13 @@ setParam("globalNavigation", true);
     <div id="container">
         <div class="content">
             <h1 class="title">Available Blogs</h1>
-            <div class="blog" v-for="(item, i) in Blogs" :key="i">
-                <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: i } }">
-                    <div class="blog-item-details">
-                        <h1 class="blog-item-title">{{ item.title }}</h1>
-                        <h2 class="blog-item-desc">{{ item.desc }}</h2>
-                        <div class="blog-item-tags">
-                            <h3 v-for="tag in item.tags">{{ tag }}</h3>
-                        </div>
-                    </div>
-                </RouterLink>
-            </div>
+            <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: i } }" v-for="(item, i) in Blogs" :key="i">
+                <h1 class="blog-item-title">{{ item.title }}</h1>
+                <h2 class="blog-item-desc">{{ item.desc }}</h2>
+                <div class="blog-item-tags">
+                    <h3 v-for="tag in item.tags">{{ tag }}</h3>
+                </div>
+            </RouterLink>
             <div class="message" v-show="isBlogListEmpty">
                 <h1>Whops...</h1>
                 <p>Seems like there is not a single blog available... 😭</p>
@@ -45,23 +41,14 @@ setParam("globalNavigation", true);
     padding: 32px;
 }
 
-.blog {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 800px;
-    width: 90vw;
-    padding-bottom: 16px;
-}
-
 .blog-item {
+    display: grid;
+    width: 90vw;
+    max-width: 800px;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     text-decoration: none;
-
-}
-
-.blog-item-details {
-    border-radius: 16px;
+    margin-bottom: 16px;
     padding-bottom: 8px;
 }
 
@@ -69,24 +56,25 @@ setParam("globalNavigation", true);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    max-width: 250px;
 
     color: white;
     font-size: 1.17em;
     padding-top: 0.5rem;
     padding-left: 1rem;
+
+    margin-right: 12px;
 }
 
 .blog-item-desc {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    max-width: 250px;
 
     color: lightgray;
     font-size: 16px;
     font-weight: normal;
     padding-left: 1rem;
+    margin-right: 12px;
 }
 
 .blog-item-tags {

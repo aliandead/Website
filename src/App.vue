@@ -7,6 +7,17 @@ const webGlobalNavigation = ref(false);
 const webGlobalFooter = ref(false);
 const webShowParticles = ref(false);
 
+const showMenu = (menu, isVisible) => {
+  const touchMove = (e) => e.preventDefault();
+  if (isVisible) {
+    menu.style.display = "flex";
+    menu.addEventListener("touchmove", touchMove);
+  } else {
+    menu.style.display = "none";
+    menu.removeEventListener("touchmove", touchMove);
+  }
+}
+
 onMounted(() => {
   const mobileNavButton = document.getElementById("mobile-navbar-button");
   const mobileNavbar = document.getElementById("mobile-navbar");
@@ -20,8 +31,8 @@ onMounted(() => {
     let currentElement = e.target;
     let isChildElement = false;
 
-    while (currentElement !== null) {
-      if (currentElement === mobileNavbar) {
+    while (currentElement != null) {
+      if (currentElement == mobileNavbar) {
         isChildElement = true;
       }
 
@@ -29,21 +40,17 @@ onMounted(() => {
     }
 
     if (!isChildElement) {
-      mobileMenu.style.display = "none";
+      showMenu(mobileMenu, false);
     }
   });
 
   mobileNavButton.addEventListener("click", () => {
-    if (mobileMenu.style.display == "flex") {
-      mobileMenu.style.display = "none";
-    } else {
-      mobileMenu.style.display = "flex";
-    }
+    showMenu(mobileMenu, mobileMenu.style.display != "flex");
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 750) {
-      mobileMenu.style.display = "none";
+      showMenu(mobileMenu, false);
     }
   });
 
@@ -54,8 +61,8 @@ onMounted(() => {
 const onUpdate = () => {
   webGlobalNavigation.value = getParam("globalNavigation");
 
-  const mobileNavigation = document.getElementById("mobile-navbar-mask");
-  mobileNavigation.style.display = "none";
+  const mobileMenu = document.getElementById("mobile-navbar-mask");
+  showMenu(mobileMenu, false);
 }
 </script>
 
@@ -134,6 +141,7 @@ const onUpdate = () => {
   margin-left: 24px;
   margin-right: 24px;
   font-size: $fontDescription;
+  transition: $transitionDuration;
 }
 
 #default-navbar a:hover {
@@ -197,6 +205,7 @@ const onUpdate = () => {
 #mobile-navbar-items li a {
   display: block;
   padding: 12px;
+  transition: $transitionDuration;
 }
 
 #mobile-navbar-items li a:hover {
@@ -220,6 +229,10 @@ const onUpdate = () => {
 .footer {
   text-align: center;
   color: dimgray;
+}
+
+.footer a {
+  transition: $transitionDuration;
 }
 
 .footer a:hover {

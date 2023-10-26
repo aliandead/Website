@@ -44,6 +44,8 @@ setParam("globalNavigation", false);
 
     margin-left: 8px;
     margin-right: 8px;
+
+    transition: $transitionDuration;
 }
 
 .navbar a:hover {

@@ -31,7 +31,6 @@ setParam("globalNavigation", true);
     <div id="container">
         <div class="content">
             <div class="title" v-if="markdownSource">
-                <RouterLink to="/blogs">Back</RouterLink>
                 <h1>{{ blog.title }}</h1>
             </div>
             <div class="markdown" v-html="renderer.render(markdownSource)" v-if="markdownSource" />
@@ -60,25 +59,12 @@ setParam("globalNavigation", true);
 }
 
 .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: $backgroundColor;
     border-radius: 16px;
     margin: 32px 16px 32px 16px;
     padding: 32px;
     max-width: 960px;
     color: white;
-}
-
-.title a {
-    color: $linkColor;
-    font-size: 20px;
-}
-
-.title a::before {
-    content: "◄ ";
-    font-weight: 900;
 }
 
 .markdown {
