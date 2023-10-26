@@ -57,6 +57,7 @@ setParam("globalNavigation", true);
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 16px;
     text-decoration: none;
+
 }
 
 .blog-item-details {

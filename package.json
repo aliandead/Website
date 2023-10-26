@@ -8,12 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "markdown-it": "^13.0.2",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
     "sass": "^1.69.4",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vite-raw-plugin": "^1.0.2"
   }
 }

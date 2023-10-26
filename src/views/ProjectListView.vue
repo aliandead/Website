@@ -74,6 +74,11 @@ setParam("globalNavigation", true);
     justify-content: center;
 }
 
+.content {
+    max-width: 1200px;
+    width: 90vw;
+}
+
 .title {
     color: $titleColor;
     text-align: center;
@@ -81,8 +86,7 @@ setParam("globalNavigation", true);
 }
 
 .project-container {
-    max-width: 75vw;
-    width: 90vw;
+    margin: 32px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -94,7 +98,6 @@ setParam("globalNavigation", true);
     width: 325px;
     height: 300px;
     background-color: rgba(99, 99, 99, 0.4);
-    margin-top: 32px;
     border-radius: 16px;
 }
 

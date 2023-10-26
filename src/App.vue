@@ -9,20 +9,48 @@ const webShowParticles = ref(false);
 
 onMounted(() => {
   const mobileNavButton = document.getElementById("mobile-navbar-button");
-  const mobileNavigation = document.getElementById("mobile-navbar-items");
+  const mobileNavbar = document.getElementById("mobile-navbar");
+  const mobileMenu = document.getElementById("mobile-navbar-items");
+
+  window.addEventListener("click", (e) => {
+    console.log(e);
+
+    if (mobileMenu.style.display != "block") {
+      return;
+    }
+
+    if (e.target.id == "mobile-navbar-button") {
+      return;
+    }
+
+    let currentElement = e.target;
+    let isChildElement = false;
+
+    while (currentElement !== null) {
+      if (currentElement === mobileNavbar) {
+        isChildElement = true;
+      }
+
+      currentElement = currentElement.parentNode;
+    }
+
+    if (!isChildElement) {
+      mobileMenu.style.display = "none";
+    }
+  });
 
   mobileNavButton.addEventListener("click", () => {
-    if (mobileNavigation.style.display == "block") {
-      mobileNavigation.style.display = "none";
+    if (mobileMenu.style.display == "block") {
+      mobileMenu.style.display = "none";
     } else {
-      mobileNavigation.style.display = "block";
+      mobileMenu.style.display = "block";
     }
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 750) {
-      mobileNavigation.style.display = "none";
-    } 
+      mobileMenu.style.display = "none";
+    }
   });
 
   webGlobalFooter.value = getParam("globalFooter");
@@ -50,14 +78,30 @@ const onUpdate = () => {
       <RouterLink to="/">
         <h1>Liam/DEV</h1>
       </RouterLink>
-      <div id="mobile-navbar-button" v-show="webGlobalNavigation" />
+      <div id="mobile-navbar-button" v-show="webGlobalNavigation">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </div>
     </div>
+    <div id="mobile-navbar-mask"/>
     <ul id="mobile-navbar-items">
-      <li><RouterLink to="/">Home</RouterLink></li>
-      <li><RouterLink to="/blogs">Blogs</RouterLink></li>
-      <li><RouterLink to="/projects">Projects</RouterLink></li>
-      <li><RouterLink to="/services">Services</RouterLink></li>
-      <li><RouterLink to="/about">About</RouterLink></li>
+      <li>
+        <RouterLink to="/">Home</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/blogs">Blogs</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/projects">Projects</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/services">Services</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/about">About</RouterLink>
+      </li>
     </ul>
     <RouterView @vue:updated="onUpdate" />
     <div class="footer" v-show="webGlobalFooter">
@@ -115,6 +159,7 @@ const onUpdate = () => {
 }
 
 #mobile-navbar {
+  z-index: 1;
   height: $mobileNavHeight;
   width: 100%;
   border-radius: $borderMedium;
@@ -133,25 +178,41 @@ const onUpdate = () => {
   width: 64px;
   height: 64px;
   margin: 16px;
-  background-color: white;
   border-radius: 64px;
   display: none;
 }
 
-#mobile-navbar-items {
-  align-self: center;
-  width: 95%;
-  list-style: none;
-  padding: 0;
+#mobile-navbar-button svg {
+  color: white;
+  margin: 8px;
+}
+
+#mobile-navbar-mask {
   position: absolute;
-  margin-top: 100px;
-  background-color: $backgroundColor;
-  border-radius: 16px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
+}
+
+#mobile-navbar-items {
+  display: none;
+  align-self: center;
+  position: absolute;
+  list-style: none;
+  width: 95%;
+  padding: 0;
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.90);
+  border-radius: 16px;
 }
 
 #mobile-navbar-items li {
   text-align: center;
+}
+
+#mobile-navbar-items li a {
+  display: block;
   padding: 12px;
 }
 
@@ -275,5 +336,4 @@ const onUpdate = () => {
       }
     }
   }
-}
-</style>
+}</style>
