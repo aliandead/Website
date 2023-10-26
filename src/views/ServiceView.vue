@@ -1,11 +1,12 @@
 <script setup>
-import { setParam } from "@/global";
+import { setParam, getParam } from "@/global";
 setParam("globalNavigation", true);
 </script>
 
 <template>
     <div id="container">
-        <div class="content">
+        <div class="content" v-if="getParam('enableServices')"/>
+        <div class="notice" v-else>
             <h1>Notice</h1>
             <p>Paid services aren't available at the moment.</p>
             <p>If you have a request, please send it at <a href="mailto:contact@example.com">contact@example.com</a></p>
@@ -22,43 +23,37 @@ setParam("globalNavigation", true);
   justify-content: center;
 }
 
-.content {
+.notice {
     background-color: $backgroundColor;
     border-radius: 16px;
     padding: 32px;
     text-align: center;
 }
 
-h1 {
+.notice h1 {
     font-size: 48px;
     color: $titleColor;
 }
-
-h4 {
-    margin-top: 16px;
-    color: white;
-}
-
-a {
-    color: $linkColor;
-}
-
-p {
+.notice p {
     font-size: 24px;
     color: $commonColor;
 }
 
+.notice a {
+    color: $linkColor;
+}
+
 @media screen and (max-width: 700px) {
-    .content {
+    .notice {
         margin-left: 24px;
         margin-right: 24px;
     }
 
-    h1 {
+    .notice h1 {
         font-size: 40px;
     }
 
-    p {
+    .notice p {
         font-size: 16px;
     }
 }

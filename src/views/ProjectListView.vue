@@ -66,13 +66,6 @@ setParam("globalNavigation", true);
     </div>
 </template>
 
-<style>
-image {
-    
-}
-
-</style>
-
 <style scoped lang="scss">
 @import "@/styles/common.scss";
 
