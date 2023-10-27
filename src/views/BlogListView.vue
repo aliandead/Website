@@ -1,7 +1,7 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import { setParam } from "@/global";
 import Blogs from "@/assets/blogs.json";
-import { onMounted, ref } from "vue";
 
 const isBlogListEmpty = ref(Blogs.length == 0);
 

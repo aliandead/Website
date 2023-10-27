@@ -1,9 +1,9 @@
 .notice {
-    background-color: $backgroundColor;
-    border-radius: 16px;
     margin: 32px;
     padding: 32px;
+    border-radius: 16px;
     text-align: center;
+    background-color: $backgroundColor;
 }
 
 .notice h1 {
