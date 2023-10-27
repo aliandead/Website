@@ -1,7 +1,10 @@
 <script setup>
+import { ref } from "vue";
+import { onMounted } from "vue";
 import { setParam } from "@/global";
 import Projects from "@/assets/projects.json";
-import { onMounted } from "vue";
+
+const isProjectListEmpty = ref(Projects.length == 0);
 
 onMounted(() => {
     const projectBanners = document.getElementsByClassName("project-item-banner");
@@ -21,6 +24,11 @@ onMounted(() => {
                            .setAttribute("style", "display: none;");
         });
     }
+
+    if (isProjectListEmpty.value) {
+        const container = document.getElementById("container");
+        container.style.alignItems = "center";
+    }
 });
 
 setParam("globalNavigation", true);
@@ -29,8 +37,7 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
-            <h1 class="title">Project Discovery</h1>
-            <div class="project-container">
+            <div class="project-container" v-show="!isProjectListEmpty">
                 <div class="project" v-for="(item, i) in Projects" :key="i">
                 <div class="project-item">
                     <div class="project-head">
@@ -62,21 +69,21 @@ setParam("globalNavigation", true);
                 </div>
             </div>
             </div>
+            <div class="notice" v-show="isProjectListEmpty">
+                <h1>Whops...</h1>
+                <p>Ah! Uh, never mind... I didn't find any project... 😬</p>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
 @import "@/styles/common.scss";
+@import "@/styles/notice.scss";
 
 #container {
     display: flex;
     justify-content: center;
-}
-
-.content {
-    max-width: 1200px;
-    width: 90vw;
 }
 
 .title {
@@ -86,11 +93,13 @@ setParam("globalNavigation", true);
 }
 
 .project-container {
-    margin: 32px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-between;
+    max-width: 1200px;
+    width: 90vw;
+    margin: 32px;
     gap: 2rem;
 }
 
