@@ -9,7 +9,7 @@ setParam("globalNavigation", true);
         <div class="notice" v-else>
             <h1>Notice</h1>
             <p>Paid services aren't available at the moment.</p>
-            <p>If you have a request, please send it at <a href="mailto:contact@example.com">contact@example.com</a></p>
+            <p>If you have a request, please send it at <a href="mailto:contact@liam-dev.fr">contact@liam-dev.fr</a></p>
         </div>
     </div>
 </template>

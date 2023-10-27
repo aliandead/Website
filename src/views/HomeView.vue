@@ -1,4 +1,6 @@
 <script setup>
+import Social from "@/components/social.vue";
+
 import { RouterLink } from 'vue-router';
 import { setParam } from "@/global";
 
@@ -10,6 +12,7 @@ setParam("globalNavigation", false);
         <div class="content">
             <RouterLink to="/">
                 <h1 class="title">Liam/DEV</h1>
+                <p class="description">is a french developer!</p>
             </RouterLink>
             <div class="navbar">
                 <RouterLink to="/blogs">Blogs</RouterLink>
@@ -17,7 +20,7 @@ setParam("globalNavigation", false);
                 <RouterLink to="/services">Services</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
             </div>
-            <p class="description">Hello, I'm a french developer!</p>
+            <Social />
         </div>
     </div>
 </template>
@@ -37,7 +40,7 @@ setParam("globalNavigation", false);
 }
 
 .navbar {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 
 .navbar a {
@@ -56,6 +59,9 @@ setParam("globalNavigation", false);
 .description {
     font-size: $fontDescription;
     color: $commonColor;
+
+    margin-top: -16px;
+    margin-bottom: 16px;
 
     transition: $transitionDuration;
 }
@@ -76,6 +82,11 @@ setParam("globalNavigation", false);
     .description {
         font-size: 20px;
     }
+
+    .social a svg {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -92,7 +103,13 @@ setParam("globalNavigation", false);
     }
 
     .description {
+        margin-top: -4px;
         font-size: 16px;
+    }
+
+    .social a svg {
+        width: 36px;
+        height: 36px;
     }
 }
 
@@ -112,6 +129,11 @@ setParam("globalNavigation", false);
     .description {
         font-size: 14px;
     }
+
+    .social a svg {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 @media screen and (max-width: 350px) {
@@ -130,5 +152,4 @@ setParam("globalNavigation", false);
     .description {
         font-size: 14px;
     }
-}
-</style>
+}</style>

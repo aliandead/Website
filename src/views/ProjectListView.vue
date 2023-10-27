@@ -71,7 +71,7 @@ setParam("globalNavigation", true);
             </div>
             </div>
             <div class="notice" v-show="isProjectListEmpty">
-                <h1>Whops...</h1>
+                <h1>Hold on...</h1>
                 <p>Ah! Uh, never mind... I didn't find any project... 😬</p>
             </div>
         </div>
