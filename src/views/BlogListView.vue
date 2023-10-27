@@ -18,6 +18,7 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
+            <h1 class="title" v-show="!isBlogListEmpty">Available Blogs</h1>
             <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: Blogs.length - 1 - i } }" v-for="(item, i) in Blogs.slice().reverse()" :key="i">
                 <h1 class="blog-item-title">{{ item.title }}</h1>
                 <h2 class="blog-item-desc">{{ item.desc }}</h2>
@@ -44,6 +45,12 @@ setParam("globalNavigation", true);
 
 .content {
     margin: 32px;
+}
+
+.title {
+    color: $titleColor;
+    text-align: center;
+    padding: 32px;
 }
 
 .blog-item {

@@ -37,6 +37,7 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
+            <h1 class="title" v-show="!isProjectListEmpty">Project Discovery</h1>
             <div class="project-container" v-show="!isProjectListEmpty">
                 <div class="project" v-for="(item, i) in Projects" :key="i">
                 <div class="project-item">
@@ -89,7 +90,7 @@ setParam("globalNavigation", true);
 .title {
     color: $titleColor;
     text-align: center;
-    padding: 32px;
+    margin: 64px 0 32px 0;
 }
 
 .project-container {
@@ -99,7 +100,6 @@ setParam("globalNavigation", true);
     align-content: space-between;
     max-width: 1200px;
     width: 90vw;
-    margin: 32px;
     gap: 2rem;
 }
 
