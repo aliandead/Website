@@ -33,7 +33,6 @@ onMounted(() => {
     }
 
     const container = document.getElementById("container");
-    container.style.alignItems = "start";
 
     if (projectExists) {
         import(`@/assets/markdown/${project.details}.project.md`).then(module => {
@@ -41,6 +40,8 @@ onMounted(() => {
         }).catch(err => {
             markdownSource.value = "";
             console.warn("Did you forget to create the markdown file?");
+        }).finally(() => {
+            container.style.alignItems = "start";
         });
     }
 });
