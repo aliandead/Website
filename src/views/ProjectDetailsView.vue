@@ -11,23 +11,7 @@ const projectId = route.query.pid;
 const project = Projects[projectId] || {};
 const projectExists = Object.keys(project).length != 0;
 
-const markdownSource = ref("");
-
-onMounted(() => {
-    const container = document.getElementById("container");
-
-    if (projectExists) {
-        import(`@/assets/markdown/${project.details}.project.md`).then(module => {
-            markdownSource.value = module.default || "";
-            container.style.alignItems = "start";
-        }).catch(err => {
-            console.warn(`Markdown source was not found`);
-            console.error(err);
-        });
-    }
-});
-
-const renderer = new MarkdownIt({ html: true });
+const markdownSource = ref(null);
 
 onMounted(() => {
     const projectBanner = document.getElementsByClassName("project-head-banner")[0];
@@ -47,7 +31,21 @@ onMounted(() => {
                                   .setAttribute("style", "display: none;");
         });
     }
+
+    const container = document.getElementById("container");
+    container.style.alignItems = "start";
+
+    if (projectExists) {
+        import(`@/assets/markdown/${project.details}.project.md`).then(module => {
+            markdownSource.value = module.default;
+        }).catch(err => {
+            markdownSource.value = "";
+            console.warn("Did you forget to create the markdown file?");
+        });
+    }
 });
+
+const renderer = new MarkdownIt({ html: true });
 
 setParam("globalNavigation", true);
 </script>
@@ -55,10 +53,10 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
-            <div class="title" v-show="markdownSource">
+            <div class="title" v-show="markdownSource != null">
                 <h1>{{ project.name }}</h1>
             </div>
-            <div class="project" v-show="markdownSource">
+            <div class="project" v-show="markdownSource != null">
                 <div class="project-head">
                 <svg class="project-head-svg">
                     <defs>
@@ -79,9 +77,9 @@ setParam("globalNavigation", true);
                     <rect class="project-icon-placeholder" width="240" height="240" x="29" y="29" rx="128" fill="#000000" />
                 </svg>
                 </div>
-                <div class="markdown" v-html="renderer.render(markdownSource)" />
+                <div class="markdown" v-html="renderer.render(markdownSource)" v-if="markdownSource != null"/>
             </div>
-            <div class="notice" v-if="!markdownSource && projectExists">
+            <div class="notice" v-if="markdownSource == null && projectExists">
                 <h1>Loading...</h1>
             </div>
             <div class="notice" v-if="!projectExists">

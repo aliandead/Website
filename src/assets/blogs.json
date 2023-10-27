@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "title": "Welcome!",
+        "desc": "Welcome to Liam/DEV's website",
+        "details": "welcome",
+        "tags": ["Liam/DEV"]
+    }
+]

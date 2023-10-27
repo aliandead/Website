@@ -11,18 +11,18 @@ const blogId = route.query.bid;
 const blog = Blogs[blogId];
 const blogExists = blog != undefined;
 
-const markdownSource = ref("");
+const markdownSource = ref(null);
 
 onMounted(() => {
     const container = document.getElementById("container");
+    container.style.alignItems = "start";
 
     if (blogExists) {
         import(`@/assets/markdown/${blog.details}.blog.md`).then(module => {
-            markdownSource.value = module.default || "";
-            container.style.alignItems = "start";
+            markdownSource.value = module.default;
         }).catch(err => {
-            console.warn(`Markdown source was not found`);
-            console.error(err);
+            markdownSource.value = "";
+            console.warn("Did you forget to create the markdown file?");
         });
     }
 });
@@ -35,11 +35,11 @@ setParam("globalNavigation", true);
 <template>
     <div id="container">
         <div class="content">
-            <div class="title" v-if="markdownSource">
+            <div class="title" v-if="markdownSource != null">
                 <h1>{{ blog.title }}</h1>
             </div>
-            <div class="markdown" v-html="renderer.render(markdownSource)" v-if="markdownSource" />
-            <div class="notice" v-if="!markdownSource && blogExists">
+            <div class="markdown" v-html="renderer.render(markdownSource)" v-if="markdownSource != null" />
+            <div class="notice" v-if="markdownSource == null && blogExists">
                 <h1>Loading...</h1>
             </div>
             <div class="notice" v-if="!blogExists">
