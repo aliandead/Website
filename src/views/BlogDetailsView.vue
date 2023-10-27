@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { setParam } from "@/global";
 import Blogs from "@/assets/blogs.json";
@@ -13,17 +13,19 @@ const blogExists = blog != undefined;
 
 const markdownSource = ref("");
 
-const container = document.getElementById("container");
+onMounted(() => {
+    const container = document.getElementById("container");
 
-if (blogExists) {
-    import(`@/assets/markdown/${blog.details}.blog.md`).then(module => {
-        markdownSource.value = module.default || "";
-        container.style.alignItems = "start";
-    }).catch(err => {
-        console.warn(`Markdown source was not found`);
-        console.error(err);
-    });
-}
+    if (blogExists) {
+        import(`@/assets/markdown/${blog.details}.blog.md`).then(module => {
+            markdownSource.value = module.default || "";
+            container.style.alignItems = "start";
+        }).catch(err => {
+            console.warn(`Markdown source was not found`);
+            console.error(err);
+        });
+    }
+});
 
 const renderer = new MarkdownIt({ html: true });
 
