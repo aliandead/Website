@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "markdown-it": "^13.0.2",
+    "punycode": "^2.3.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
