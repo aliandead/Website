@@ -69,9 +69,10 @@ setParam("globalNavigation", true);
     background-color: $backgroundColor;
     border-radius: 16px;
     margin: 32px 16px 32px 16px;
-    padding: 32px;
+    padding: 24px;
     max-width: 960px;
     color: white;
+    font-size: 12px;
 }
 
 .markdown {

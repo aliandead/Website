@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "title": "Welcome to Liam/DEV",
+        "desc": "A place where... you can find out about all my newest projects!",
+        "details": "welcome",
+        "tags":["Liam/DEV"]
+    },
+    {
+        "title": "Project Alian/DEAD turned 1!",
+        "desc": "And so... What's next???",
+        "details": "first_birthday",
+        "tags":["Alian/DEAD","1st Birthday"]
+    }
+]
