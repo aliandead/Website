@@ -1,6 +1,6 @@
 # Liam/DEV (Alian/DEAD) - Website
 
-<img src="github/showcase.png">
+LIVE NOW AT https://liam-dev.fr
 
 ## Recommended IDE Setup
 
