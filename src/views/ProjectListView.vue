@@ -1,7 +1,7 @@
 <script setup>
 import { setParam } from "@/global";
 import Projects from "@/assets/projects.json";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 
 onMounted(() => {
     const projectBanners = document.getElementsByClassName("project-item-banner");
@@ -48,7 +48,7 @@ setParam("globalNavigation", true);
                                 </clipPath>
                             </defs>
 
-                            <image class="project-item-banner" :href="item.banner" width="325" height="98" mask="url(#through)" style="display: none;"/>
+                            <image class="project-item-banner" :href="item.banner" width="100%" height="98" preserveAspectRatio="xMidYMid slice" mask="url(#through)" style="display: none;"/>
                             <rect class="project-banner-placeholder" width="325" height="98" fill="#000000" mask="url(#through)" />
                             <image class="project-item-icon" :href="item.icon" width="96" height="96" x="24" y="24" clip-path="url(#rounded-clip)" style="display: none;"/>
                             <rect class="project-icon-placeholder" width="96" height="96" x="24" y="24" rx="64" fill="#000000"/>
@@ -97,7 +97,7 @@ setParam("globalNavigation", true);
 .project {
     width: 325px;
     height: 300px;
-    background-color: rgba(99, 99, 99, 0.4);
+    background-color: rgba(30,30,30,0.75);
     border-radius: 16px;
 }
 

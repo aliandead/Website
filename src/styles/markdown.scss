@@ -1,0 +1,26 @@
+.markdown :deep(img) {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.markdown :deep(pre) {
+    color: white;
+    background-color: rgba(130, 130, 130, 0.25);
+    padding: 8px;
+    border-radius: 4px;
+    overflow: auto;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.markdown :deep(a) {
+    color: $linkColor;
+}
+
+.markdown > :deep(*) {
+    word-wrap: break-word;
+    margin: 16px;
+    max-width: 100%;
+    color: white;
+}

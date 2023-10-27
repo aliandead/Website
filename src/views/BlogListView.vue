@@ -12,7 +12,7 @@ setParam("globalNavigation", true);
     <div id="container">
         <div class="content">
             <h1 class="title">Available Blogs</h1>
-            <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: i } }" v-for="(item, i) in Blogs" :key="i">
+            <RouterLink class="blog-item" :to="{ path: '/blog/view', query: { bid: Blogs.length - 1 - i } }" v-for="(item, i) in Blogs.slice().reverse()" :key="i">
                 <h1 class="blog-item-title">{{ item.title }}</h1>
                 <h2 class="blog-item-desc">{{ item.desc }}</h2>
                 <div class="blog-item-tags">
@@ -45,7 +45,7 @@ setParam("globalNavigation", true);
     display: grid;
     width: 90vw;
     max-width: 800px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: $backgroundColor;
     border-radius: 16px;
     text-decoration: none;
     margin-bottom: 16px;

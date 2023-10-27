@@ -16,45 +16,11 @@ setParam("globalNavigation", true);
 
 <style scoped lang="scss">
 @import "@/styles/common.scss";
+@import "@/styles/notice.scss";
 
 #container {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.notice {
-    background-color: $backgroundColor;
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-}
-
-.notice h1 {
-    font-size: 48px;
-    color: $titleColor;
-}
-.notice p {
-    font-size: 24px;
-    color: $commonColor;
-}
-
-.notice a {
-    color: $linkColor;
-}
-
-@media screen and (max-width: 700px) {
-    .notice {
-        margin-left: 24px;
-        margin-right: 24px;
-    }
-
-    .notice h1 {
-        font-size: 40px;
-    }
-
-    .notice p {
-        font-size: 16px;
-    }
 }
 </style>

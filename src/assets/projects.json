@@ -3,30 +3,35 @@
         "name": "ReNote",
         "desc": "A timetable software",
         "icon": "/static/renote.png",
-        "banner": "/static/renote_banner.png"
+        "banner": "/static/renote_banner.png",
+        "details": "renote"
     },
     {
         "name": "ReNote",
         "desc": "A timetable software",
         "icon": "/static/renote.png",
-        "banner": "/static/renote_banner.png"
+        "banner": "/static/renote_banner.png",
+        "details": "renote"
     },
     {
         "name": "ReNote",
         "desc": "A timetable software",
         "icon": "/static/renote.png",
-        "banner": "/static/renote_banner.png"
+        "banner": "/static/renote_banner.png",
+        "details": "renote"
     },
     {
         "name": "ReNote",
         "desc": "A timetable software",
         "icon": "/static/renote.png",
-        "banner": "/static/renote_banner.png"
+        "banner": "/static/renote_banner.png",
+        "details": "renote"
     },
     {
         "name": "ReNote",
         "desc": "A timetable software",
         "icon": "/static/renote.png",
-        "banner": "/static/renote_banner.png"
+        "banner": "/static/renote_banner.png",
+        "details": "renote"
     }
 ]

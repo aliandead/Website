@@ -28,5 +28,11 @@
         "desc": "A timetable software",
         "details": "renote",
         "tags": ["School","C#","Productivity"]
+    },
+    {
+        "title": "Zero",
+        "desc": "Zero Blog",
+        "details": "zero",
+        "tags": ["Zero","0"]
     }
 ]
