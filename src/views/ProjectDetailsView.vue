@@ -13,17 +13,19 @@ const projectExists = Object.keys(project).length != 0;
 
 const markdownSource = ref("");
 
-const container = document.getElementById("container");
+onMounted(() => {
+    const container = document.getElementById("container");
 
-if (projectExists) {
-    import(`@/assets/markdown/${project.details}.project.md`).then(module => {
-        markdownSource.value = module.default || "";
-        container.style.alignItems = "start";
-    }).catch(err => {
-        console.warn(`Markdown source was not found`);
-        console.error(err);
-    });
-}
+    if (projectExists) {
+        import(`@/assets/markdown/${project.details}.project.md`).then(module => {
+            markdownSource.value = module.default || "";
+            container.style.alignItems = "start";
+        }).catch(err => {
+            console.warn(`Markdown source was not found`);
+            console.error(err);
+        });
+    }
+});
 
 const renderer = new MarkdownIt({ html: true });
 
@@ -72,7 +74,7 @@ setParam("globalNavigation", true);
                         </clipPath>
                     </defs>
                     <image class="project-head-banner" :href="project.banner" width="100%" height="245" preserveAspectRatio="xMidYMid slice" mask="url(#through)" style="display: none;" />
-                    <rect class="project-banner-placeholder" width="812" height="245" fill="#000000" mask="url(#through)" />
+                    <rect class="project-banner-placeholder" width="100%" height="245" preserveAspectRatio="xMidYMid slice" fill="#000000" mask="url(#through)" />
                     <image class="project-head-icon" :href="project.icon" width="240" height="240" x="29" y="29" clip-path="url(#rounded-clip)" style="display: none;" />
                     <rect class="project-icon-placeholder" width="240" height="240" x="29" y="29" rx="128" fill="#000000" />
                 </svg>
@@ -116,7 +118,7 @@ setParam("globalNavigation", true);
 
 .project {
     max-width: 960px;
-    width: 90vw;
+    width: 85vw;
 
     border-radius: 32px;
     margin: 32px;
