@@ -26,3 +26,10 @@
 .markdown :deep(.no-underline) {
     text-decoration: none;
 }
+
+.markdown :deep(.meta-info) {
+    color: #ccc;
+    margin-bottom: 4px;
+    text-align: end;
+    font-size: 14px;
+}

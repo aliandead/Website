@@ -28,7 +28,9 @@ onMounted(() => {
     }
 });
 
-const renderer = new MarkdownIt({ html: true });
+const renderer = new MarkdownIt({
+     html: true
+ });
 
 setParam("globalNavigation", true);
 </script>
