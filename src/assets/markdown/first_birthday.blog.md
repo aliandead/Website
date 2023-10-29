@@ -8,7 +8,7 @@ Now you might be wondering why create an engine from scratch? As an independant 
 
 Let's say I choose an existing engine to develop my game, I would have to learn about that specific engine and its way of dealing with the creation of a game. Whereas making my own engine, will allow me to learn about the inner workings resulting in a better understanding of all game engines in general.
 
-Stay tuned for more information to be unveiled next year!
+But stay patient, more information about **Veiture** are going to be unveiled early next year!
 
 # WHAT ABOUT MY OTHER PROJECTS?
 Some of my projects such as **ReNote** or **French.NET** are still being developed even though I often lack of time. In case you are not familiar with my current projects, **ReNote** is a timetable software designed to boost your productivity as a student or teacher. **French.NET** on the other hand is an implementation of the French language in C#. It will have the ability to generate sentences and correct sentences with 100% accuracy.
