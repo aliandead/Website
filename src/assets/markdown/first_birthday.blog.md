@@ -4,7 +4,7 @@ And so... What's next??? Well! Let's talk about my plan for Alian/DEAD in the ne
 **Veiture** is my most recent long-term project. I initially came up with the idea in summer 2022 but ended up officially working on it a year later. I'm not planning on revealing too much about it this year either, yet looking closely may help you to read between<a class="no-underline" href="https://instagram.com/aliandead" target="_blank" aria-label="read between the lines">&#8201;</a>the lines.
 But if you are eager to know: Codenamed, **Veiture** is an anime style action role-playing game. It will be developed with its very own engine.
 
-Now you might be wondering why create an engine from scratch? As an independant developer, I develop my projects by myself from start to finish. Unless I want to spend weeks or months on something, I may use libraries from third parties to get things done more quickly.
+Now you might be wondering why create an engine from scratch? As an independent developer, I develop my projects by myself from start to finish. Unless I want to spend weeks or months on something, I may use libraries from third parties to get things done more quickly.
 
 Let's say I choose an existing engine to develop my game, I would have to learn about that specific engine and its way of dealing with the creation of a game. Whereas making my own engine, will allow me to learn about the inner workings resulting in a better understanding of all game engines in general.
 
