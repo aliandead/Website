@@ -57,29 +57,29 @@ setParam("globalNavigation", true);
     <div id="container">
         <div class="content">
             <div class="title" v-show="markdownSource != null">
+                <svg class="project-icon-svg" width="64" height="64">
+                    <defs>
+                        <rect id="rounded" rx="64" width="64" height="64" />
+                        <clipPath id="rounded-clip">
+                            <use xlink:href="#rounded" />
+                        </clipPath>
+                    </defs>
+                    <image class="project-head-icon" :href="project.icon" width="64" height="64" clip-path="url(#rounded-clip)" style="display: none;" />
+                    <rect class="project-icon-placeholder" width="64" height="64" rx="64" fill="#000000" />
+                </svg>
                 <h1>{{ project.name }}</h1>
             </div>
             <div class="project" v-show="markdownSource != null">
-                <div class="project-head">
-                <svg class="project-head-svg">
-                    <defs>
-                        <mask id="through">
-                            <rect width="100%" height="100%" fill="white" />
-                            <rect x="20" y="91" width="262" height="262" rx="128" fill="black" />
-                        </mask>
-                    </defs>
+                <svg class="project-banner-svg">
                     <defs>
                         <rect id="rounded" rx="128" width="240" height="240" x="32" y="100" />
                         <clipPath id="rounded-clip">
                             <use xlink:href="#rounded" />
                         </clipPath>
                     </defs>
-                    <image class="project-head-banner" :href="project.banner" width="100%" height="245" preserveAspectRatio="xMidYMid slice" mask="url(#through)" style="display: none;" />
-                    <rect class="project-banner-placeholder" width="100%" height="245" preserveAspectRatio="xMidYMid slice" fill="#000000" mask="url(#through)" />
-                    <image class="project-head-icon" :href="project.icon" width="240" height="240" x="32" y="100" clip-path="url(#rounded-clip)" style="display: none;" />
-                    <rect class="project-icon-placeholder" width="240" height="240" x="32" y="100" rx="128" fill="#000000" />
+                    <image class="project-head-banner" :href="project.banner" width="100%" height="245" preserveAspectRatio="xMidYMid slice" style="display: none;" />
+                    <rect class="project-banner-placeholder" width="100%" height="245" preserveAspectRatio="xMidYMid slice" fill="#000000" />
                 </svg>
-                </div>
                 <div class="markdown" v-html="renderer.render(markdownSource)" v-if="markdownSource != null"/>
             </div>
             <div class="notice" v-if="markdownSource == null && projectExists">
@@ -112,9 +112,15 @@ setParam("globalNavigation", true);
     background-color: $backgroundColor;
     border-radius: 16px;
     margin: 32px;
-    padding: 32px;
+    padding: 16px;
     max-width: 960px;
     color: white;
+    display: flex;
+    align-items: center;
+}
+
+.title h1 {
+    margin-left: 12px;
 }
 
 .project {
@@ -127,14 +133,10 @@ setParam("globalNavigation", true);
     background-color: $backgroundColor;
 }
 
-.project-head-svg {
+.project-banner-svg {
     width: 100%;
-    height: 350px;
+    height: 175px;
     overflow: hidden;
     border-radius: 32px 32px 0 0;
-}
-
-.markdown {
-    margin-left: 30px;
 }
 </style>
