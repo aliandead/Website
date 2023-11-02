@@ -65,19 +65,19 @@ setParam("globalNavigation", true);
                     <defs>
                         <mask id="through">
                             <rect width="100%" height="100%" fill="white" />
-                            <rect x="20" y="20" width="262" height="262" rx="128" fill="black" />
+                            <rect x="20" y="91" width="262" height="262" rx="128" fill="black" />
                         </mask>
                     </defs>
                     <defs>
-                        <rect id="rounded" rx="128" width="240" height="240" x="29" y="29" />
+                        <rect id="rounded" rx="128" width="240" height="240" x="32" y="100" />
                         <clipPath id="rounded-clip">
                             <use xlink:href="#rounded" />
                         </clipPath>
                     </defs>
                     <image class="project-head-banner" :href="project.banner" width="100%" height="245" preserveAspectRatio="xMidYMid slice" mask="url(#through)" style="display: none;" />
                     <rect class="project-banner-placeholder" width="100%" height="245" preserveAspectRatio="xMidYMid slice" fill="#000000" mask="url(#through)" />
-                    <image class="project-head-icon" :href="project.icon" width="240" height="240" x="29" y="29" clip-path="url(#rounded-clip)" style="display: none;" />
-                    <rect class="project-icon-placeholder" width="240" height="240" x="29" y="29" rx="128" fill="#000000" />
+                    <image class="project-head-icon" :href="project.icon" width="240" height="240" x="32" y="100" clip-path="url(#rounded-clip)" style="display: none;" />
+                    <rect class="project-icon-placeholder" width="240" height="240" x="32" y="100" rx="128" fill="#000000" />
                 </svg>
                 </div>
                 <div class="markdown" v-html="renderer.render(markdownSource)" v-if="markdownSource != null"/>
@@ -129,8 +129,12 @@ setParam("globalNavigation", true);
 
 .project-head-svg {
     width: 100%;
-    height: 275px;
+    height: 350px;
     overflow: hidden;
     border-radius: 32px 32px 0 0;
+}
+
+.markdown {
+    margin-left: 30px;
 }
 </style>

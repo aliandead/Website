@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "name": "Veiture",
+        "desc": "(Codenamed) Veiture is an anime style action role-playing game",
+        "details": "veiture",
+        "icon": "/static/icons/veiture.png"
+    }
+]

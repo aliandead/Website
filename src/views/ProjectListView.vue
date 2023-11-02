@@ -130,7 +130,6 @@ setParam("globalNavigation", true);
     height: 80px;
 
     color: white;
-    text-align: justify;
 
     font-weight: 400;
     font-size: 16px;
