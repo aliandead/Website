@@ -87,7 +87,7 @@ setParam("globalNavigation", true);
             </div>
             <div class="notice" v-if="!projectExists">
                 <h1>404 - Not Found</h1>
-                <p>Oh... Looks like this project does not exist! 😐</p>
+                <p>Oh... This project does not exist! 😐</p>
             </div>
         </div>
     </div>
