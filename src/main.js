@@ -10,4 +10,4 @@ setParam("showParticles", true);
 setParam("enableServices", false);
 
 createApp(App).use(router)
-              .mount("#app");
+              .mount("#app")

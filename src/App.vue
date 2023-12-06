@@ -87,11 +87,21 @@ const onUpdate = () => {
     </div>
     <div id="mobile-navbar-mask">
       <ul id="mobile-navbar-items">
-        <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/blogs">Blogs</RouterLink></li>
-        <li><RouterLink to="/projects">Projects</RouterLink></li>
-        <li><RouterLink to="/services">Services</RouterLink></li>
-        <li><RouterLink to="/about">About</RouterLink></li>
+        <li>
+          <RouterLink to="/">Home</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/blogs">Blogs</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/projects">Projects</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/services">Services</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/about">About</RouterLink>
+        </li>
       </ul>
     </div>
     <RouterView @vue:updated="onUpdate" />
@@ -182,7 +192,7 @@ const onUpdate = () => {
 }
 
 #mobile-navbar-button svg:hover {
-  color: gray; 
+  color: gray;
 }
 
 #mobile-navbar-mask {
@@ -245,12 +255,11 @@ const onUpdate = () => {
 }
 
 .particles {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   z-index: -1;
 }
 
@@ -320,11 +329,11 @@ const onUpdate = () => {
 
       @keyframes #{$framesName} {
         from {
-          transform: translate3d(#{random(100) + vw}, #{$startPositionY + vh}, 0);
+          transform: translate3d(#{random(100) + vw}, 0, 0);
         }
 
         to {
-          transform: translate3d(#{random(100) + vw}, #{- $startPositionY - random(30) + vh}, 0);
+          transform: translate3d(#{random(100) + vw}, #{$startPositionY + vh}, 0);
         }
       }
 

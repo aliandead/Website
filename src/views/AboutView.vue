@@ -12,7 +12,7 @@ setParam("globalNavigation", true);
             <p>I'm a french developer with over 4 years of experience.</p>
             <Social />
             <h2>SVG Icons: Provided by <a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">Font Awesome</a></h2>
-            <h2>Background: <a href="https://www.flickr.com/photos/117317408@N03/13445568174/" target="_blank">Redlight A Night</a> by <a href="https://instagram.com/billypwoodford" target="_blank">Billy Woodford</a> - <a href="https://youtube.com/@nocopyrightsounds" target="_blank">NCS</a> Founder</h2>
+            <h2>Background: <a href="https://www.flickr.com/photos/117317408@N03/12481560173/" target="_blank">Highway At Night</a> by <a href="https://instagram.com/billypwoodford" target="_blank">Billy Woodford</a> - <a href="https://youtube.com/@nocopyrightsounds" target="_blank">NCS</a> Founder</h2>
         </div>
     </div>
 </template>
