@@ -267,7 +267,7 @@ const onUpdate = () => {
 .circle-container {
 
   $particleWidth: 10;
-  $particleNum: 200;
+  $particleNum: 150;
   $particleColor: hsl(180, 100%, 80%);
 
   position: absolute;
