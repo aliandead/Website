@@ -11,7 +11,7 @@ It's 2018, I'm not yet into computer science, basically a random dude playing ga
 
 That app contained loads of mini-games with additional features such as the ability to add friends, chat and play with them. I decided to give it a try and sticked to it for a little while but I eventually stopped playing it when I got my laptop in summer 2019 as the PC version was in maintenance.
 
-Nevertheless during the first lockdown, I actually maybe, just maybe, JUST MAYBE came back to it, this time I was playing on "Bluestacks"<sup>1</sup> just, JUST 90% of the time.
+Nevertheless during the first lockdown, I actually maybe, just maybe, JUST MAYBE came back to it, this time I was playing on "Bluestacks<sup>1</sup>" just, JUST 90% of the time.
 
 1. An Android emulator
 
@@ -39,7 +39,7 @@ Although, we are only going to focus on the Media folder and what it has to offe
 
 <p align="center">
     <img src="/static/game_nightmare/bg_pc_media_folder.png">
-    <i>Note: I won't talk about the 'sandboxol' file for now</i>
+    <i>Note: I won't talk about the 'sandboxol' file for now (it wasn't there at that time)</i>
 </p>
 
 Let's introduce our first character: VECTOR. He greatly helped Blockman GO in its early phase and is the first modder of the game.
@@ -48,7 +48,7 @@ In Minecraft, it's a common thing to use texture packs. But here, there are no t
 
 He really motivated me to make my own stuff and so I did. I released two texture packs for Android. Check them out: <a href="https://youtu.be/TSEflt2VXYc?si=V2pUctMRR_sNipgR&t=64" target="_blank">this one</a> and <a href="https://youtu.be/dBGQH4Ux-n0?si=NtyaM6xCDs9nmZFK" target="_blank">that one</a>!
 
-At some point I wanted to edit the texture of an UI<sup>1</sup>, but couldn't find it simply because the assets of the mini-games are stored in the 'Scripts' folder, and I never would have thought of it (Until I did lol). This folder is actually mostly used for storing the Lua<sup>2</sup> scripts.
+At some point I wanted to edit the texture of a UI<sup>1</sup>, but couldn't find it simply because the assets of the mini-games are stored in the 'Scripts' folder, and I never would have thought of it (Until I did lol). This folder is actually mostly used for storing the Lua<sup>2</sup> scripts.
 
 That's our starting point to this journey. It's where everything truly begins (I promise it really starts to get interesting from here).
 
@@ -82,26 +82,28 @@ ClientHelper.putBoolPrefs("EnableDoubleJumps", true)
 ```
 That's what it takes to enable fly on all mini-games!
 
-Let's introduce the one and only: Thebigboy, a retired BG<sup>1</sup> official. At that time he was still working at Sandbox<sup>2</sup> and was one, if not the only admin that actually cared about the community. All other admins disgusted me.
+Now let's introduce the one and only: Thebigboy, a retired BG<sup>1</sup> official. At that time he was still working at Sandbox<sup>2</sup> and was one, if not the only admin that actually cared about the community. All other admins after him were disgusting me.
 
 I was actually reporting everything to him. He replied almost every time I messaged him, asked me questions and gave me Gcubes on multiple occasions, he was clearly doing his job and very well. But if only, if only it was the case for rest of his team... Nothing was getting fixed, not even today.
 
-During that time, I still had hopes but it's no longer the case and you'll probably understand why once I unveil the whole story.
+During that time, I still had hopes but as you read through you'll slowly but surely understand that I no longer do.
 
-You see, Thebigboy is an honest person unlike some other members of his team. One really claimed that some maps that they clearly imported from Minecraft were made by themselves and he even got the audacity to tell me that it's an original creation. 
+You see, Thebigboy is an honest person unlike some other members of his team. Why am I saying that? One once claimed that some maps that they clearly imported from Minecraft were made by themselves and he even got the audacity to tell me that it's an original creation.
 
 What a joke. Things are already heating up and I'm just getting started. I'm telling you. You are in for a ride.
 
 1. Blockman GO for short
-2. Sandbox (now known as Gverse): The company behind Blockman GO
+2. Sandbox (known as Gverse overseas): The company behind Blockman GO
 
 # III. MORE MODS (2021)
 Before going any further, let me introduce you to... Mr Dino!
 <p align="center">
     <img src="/static/game_nightmare/bg_mrdino_meme.png" style="width: 66%; height: 66%;">
+    <br>
+    <i>I'll explain what I mean by 'hacking stuff' later on</i>
 </p>
 
-He's the second member of the squad. He was once a normal player until one day 
+He's the second member of the squad. He was once a normal player until one day...
 
 # INTERLUDE - WHO ARE BEHIND BLOCKMAN GO?
 
