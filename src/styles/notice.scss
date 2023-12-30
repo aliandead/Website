@@ -1,5 +1,5 @@
 .notice {
-    margin: 16px;
+    margin: 16px 0 16px 0;
     padding: 32px;
     border-radius: 16px;
     text-align: center;
@@ -29,8 +29,8 @@
 
 @media screen and (max-width: 700px) {
     .notice {
-        margin-left: 24px;
-        margin-right: 24px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 
     .notice h1 {

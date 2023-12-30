@@ -36,25 +36,26 @@ setParam("globalPageTitle", "About");
 <style scoped lang="scss">
 @import "@/styles/common.scss";
 @import "@/styles/notice.scss";
+@import "@/styles/markdown.scss";
 
 #container {
     display: flex;
     justify-content: center;
 }
 .content {
-    margin-top: 64px;
+    min-width: 0;
+    margin: 64px 16px 0 16px;
 }
+
 
 .resume {
     background-color: $backgroundColor;
     color: white;
     
-    margin: 16px;
     padding: 32px;
     border-radius: 16px;
     
     max-width: 800px;
-    width: 90vw;
 }
 
 .header {
@@ -64,5 +65,7 @@ setParam("globalPageTitle", "About");
     font-size: 24px;
     font-style: italic;
     margin-bottom: 16px;
+
+    //width: ;
 }
 </style>
