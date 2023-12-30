@@ -1,11 +1,16 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { RouterLink, RouterView } from "vue-router";
-import { getParam } from "./global";
+import { useRouter, RouterLink, RouterView } from "vue-router";
+import { getParam } from "@/global";
 
 const webGlobalNavigation = ref(false);
 const webGlobalFooter = ref(false);
 const webShowParticles = ref(false);
+
+const router = useRouter();
+const routes = ref(
+    router.getRoutes().filter(x => x.meta.inNavbar)
+)
 
 const showMenu = (menu, isVisible) => {
   const touchMove = (e) => e.preventDefault();
@@ -44,7 +49,7 @@ onMounted(() => {
     }
   });
 
-  mobileNavButton.addEventListener("click", () => {
+  mobileNavButton.addEventListener("click", (e) => {
     showMenu(mobileMenu, mobileMenu.style.display != "flex");
   });
 
@@ -63,17 +68,22 @@ const onUpdate = () => {
 
   const mobileMenu = document.getElementById("mobile-navbar-mask");
   showMenu(mobileMenu, false);
+
+  const globalPageTitle = getParam("globalPageTitle");
+  if (globalPageTitle) {
+    document.title = `${globalPageTitle} - Liam/DEV`;
+  } else {
+    document.title = "Liam/DEV";
+  }
 }
 </script>
 
 <template>
   <div id="master">
     <div id="default-navbar" v-show="webGlobalNavigation">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/blogs">Blogs</RouterLink>
-      <RouterLink to="/projects">Projects</RouterLink>
-      <RouterLink to="/services">Services</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink :to="item.path" v-for="item in routes">
+        {{ item.name }}
+      </RouterLink>
     </div>
     <div id="mobile-navbar" v-show="webGlobalNavigation">
       <RouterLink to="/">
@@ -87,20 +97,8 @@ const onUpdate = () => {
     </div>
     <div id="mobile-navbar-mask">
       <ul id="mobile-navbar-items">
-        <li>
-          <RouterLink to="/">Home</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/blogs">Blogs</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/projects">Projects</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/services">Services</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/about">About</RouterLink>
+        <li :to="item.path" v-for="item in routes">
+          <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
     </div>
@@ -112,7 +110,7 @@ const onUpdate = () => {
     </div>
   </div>
   <div class="particles" v-show="webShowParticles">
-    <div class="circle-container" v-for="i in 100" :key="i">
+    <div class="circle-container" v-for="i in 10" :key="i">
       <div class="circle"></div>
     </div>
   </div>
@@ -231,7 +229,7 @@ const onUpdate = () => {
   text-shadow: $shadow;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 860px) {
   #default-navbar {
     display: none;
   }
@@ -267,7 +265,7 @@ const onUpdate = () => {
 .circle-container {
 
   $particleWidth: 10;
-  $particleNum: 150;
+  $particleNum: 10;
   $particleColor: hsl(180, 100%, 80%);
 
   position: absolute;

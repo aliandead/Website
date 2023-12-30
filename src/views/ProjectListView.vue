@@ -2,17 +2,20 @@
 import { ref } from "vue";
 import { onMounted } from "vue";
 import { setParam } from "@/global";
-import Projects from "@/assets/projects.json";
+import Project from "@/components/Project.vue";
 
-const isProjectListEmpty = ref(Projects.length == 0);
+import Data from "@/assets/projects.json";
+
+const isProjectListEmpty = ref(Data.project.length == 0);
+const isWorkListEmpty = ref(Data.work.length == 0);
 
 onMounted(() => {
     const projectBanners = document.getElementsByClassName("project-item-banner");
     for (const banner of projectBanners) {
         banner.addEventListener("load", () => {
             banner.setAttribute("style", "display: block;");
-            banner.parentNode.getElementsByClassName("project-banner-placeholder")[0]
-                             .setAttribute("style", "display: none;");
+            banner.parentNode.querySelector(".project-banner-placeholder")
+                .setAttribute("style", "display: none;");
         });
     }
 
@@ -20,59 +23,36 @@ onMounted(() => {
     for (const icon of projectIcons) {
         icon.addEventListener("load", () => {
             icon.setAttribute("style", "display: block;");
-            icon.parentNode.getElementsByClassName("project-icon-placeholder")[0]
-                           .setAttribute("style", "display: none;");
+            icon.parentNode.querySelector(".project-icon-placeholder")
+                .setAttribute("style", "display: none;");
         });
     }
 
-    if (isProjectListEmpty.value) {
+    if (isProjectListEmpty.value && isWorkListEmpty.value) {
         const container = document.getElementById("container");
         container.style.alignItems = "center";
     }
 });
 
 setParam("globalNavigation", true);
+setParam("globalPageTitle", "Projects");
 </script>
 
 <template>
     <div id="container">
         <div class="content">
-            <h1 class="title" v-show="!isProjectListEmpty">Project Discovery</h1>
-            <div class="project-container" v-show="!isProjectListEmpty">
-                <div class="project" v-for="(item, i) in Projects" :key="i">
-                <div class="project-item">
-                    <div class="project-head">
-                        <svg class="project-item-svg" width="325" height="125">
-                            <defs>
-                                <mask id="through">
-                                    <rect width="100%" height="100%" fill="white" />
-                                    <rect x="20" y="20" width="105" height="105" rx="64" fill="black" />
-                                </mask>
-                            </defs>
-                            <defs>
-                                <rect id="rounded" rx="64" width="96" height="96" x="24" y="24"/>
-                                <clipPath id="rounded-clip">
-                                    <use xlink:href="#rounded"/>
-                                </clipPath>
-                            </defs>
-
-                            <image class="project-item-banner" :href="item.banner" width="100%" height="98" preserveAspectRatio="xMidYMid slice" mask="url(#through)" style="display: none;"/>
-                            <rect class="project-banner-placeholder" width="325" height="98" fill="#000000" mask="url(#through)" />
-                            <image class="project-item-icon" :href="item.icon" width="96" height="96" x="24" y="24" clip-path="url(#rounded-clip)" style="display: none;"/>
-                            <rect class="project-icon-placeholder" width="96" height="96" x="24" y="24" rx="64" fill="#000000"/>
-                        </svg>
-                    </div>
-                    <h1 class="project-item-title">{{ item.name }}</h1>
-                    <h2 class="project-item-desc">{{ item.desc }}</h2>
-                    <RouterLink class="project-item-details" :to="{ path: 'project/details', query: { pid: i } }">
-                        View details
-                    </RouterLink>
-                </div>
+            <h1 class="title" v-show="!isProjectListEmpty || !isWorkListEmpty">Project Discovery</h1>
+            <p class="small-title" v-show="!isProjectListEmpty">Current Projects</p>
+            <div class="card-container" v-show="!isProjectListEmpty">
+                <Project :data="item" :projectId="i" v-for="(item, i) in Data.project" :key="i" />
             </div>
+            <p class="small-title" v-show="!isWorkListEmpty">Previous works / ideas</p>
+            <div class="card-container" v-show="!isWorkListEmpty">
+                <Project :data="item" :projectId="i" :isWork="true" v-for="(item, i) in Data.work" :key="i" />
             </div>
-            <div class="notice" v-show="isProjectListEmpty">
+            <div class="notice" v-show="isProjectListEmpty && isWorkListEmpty">
                 <h1>Hold on...</h1>
-                <p>Ah! Uh, never mind... I didn't find any project... 😬</p>
+                <p>Ah! Uh, never mind... I didn't find anything... 😬</p>
             </div>
         </div>
     </div>
@@ -93,67 +73,31 @@ setParam("globalNavigation", true);
     margin: 64px 0 32px 0;
 }
 
-.project-container {
+.small-title {
+    font-size: 24px;
+    color: $titleColor;
+    margin: 16px;
+}
+
+.card-container {
+    padding: 30px;
+    background-color: $backgroundColor;
+    border-radius: 32px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-content: space-between;
-    max-width: 1200px;
+    max-width: 1039px;
     width: 90vw;
     gap: 2rem;
+    margin-bottom: 16px;
 }
 
-.project {
-    width: 325px;
-    height: 300px;
-    background-color: rgba(30,30,30,0.75);
-    border-radius: 16px;
-}
-
-.project-item-svg {
-    border-radius: 16px 16px 0 0;
-}
-
-.project-item-title {
-    font-size: 32px;
-    margin-left: 12.5px;
-    color: white;
-}
-
-.project-item-desc {
-    max-width: 300px;
-    word-wrap: break-word;
-
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-height: 80px;
-    height: 80px;
-
-    color: white;
-
-    font-weight: 400;
-    font-size: 16px;
-
-    margin-left: 12.5px;
-    margin-right: 12.5px;
-}
-
-.project-item a {
-    background-color: rgba(0, 0, 0, 0.75);
-    text-decoration: none;
-    text-align: center;
-    width: 85%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px;
-    border-radius: 8px;
-}
-
-@media screen and (max-width: 500px) {
-    .project-container {
+@media screen and (max-width: 860px) {
+    .card-container {
+        justify-content: center;
         max-width: initial;
         width: initial;
+        margin: 16px;
     }
 }
 </style>

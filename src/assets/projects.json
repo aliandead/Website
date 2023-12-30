@@ -1,8 +1,72 @@
-[
-    {
-        "name": "Veiture",
-        "desc": "(Codenamed) Veiture is an anime style action role-playing game",
-        "details": "veiture",
-        "icon": "/static/icons/veiture.png"
-    }
-]
+{
+    "project": [
+        {
+            "name": "DotEngine",
+            "desc": "C++ 2D game engine",
+            "details": "dotengine",
+            "icon": "/static/icons/dotengine.png"
+        },
+        {
+            "name": "Veiture",
+            "desc": "Anime style action role-playing game",
+            "details": "veiture",
+            "icon": "/static/icons/veiture.png"
+        },
+        {
+            "name": "ReNote",
+            "desc": "Easy-to-use timetable software",
+            "details": "renote",
+            "icon": "/static/icons/renote.png"
+        },
+        {
+            "name": "Crysmon",
+            "desc": "Game platform powered by DotEngine",
+            "details": "crysmon",
+            "icon": "/static/icons/crysmon.png"
+        },
+        {
+            "name": "French.NET",
+            "desc": "C# implementation of the French language",
+            "details": "frenchdotnet",
+            "icon": ""
+        }
+    ],
+    "work": [
+        {
+            "name": "NightTools",
+            "desc": "Collection of utilities into a single application",
+            "details": "nighttools",
+            "icon": "/static/icons/nighttools.png"
+        },
+        {
+            "name": "PC Hacker",
+            "desc": "Utilities for developers",
+            "details": "pc_hacker",
+            "icon": "/static/icons/pc_hacker.png"
+        },
+        {
+            "name": "ALSD Office",
+            "desc": "Suite of office softwares",
+            "details": "alsd_office",
+            "icon": "/static/icons/alsd_office.png"
+        },
+        {
+            "name": "Xpress Studio",
+            "desc": "VB.NET and C# IDE",
+            "details": "xpress",
+            "icon": "/static/icons/xpress.png"
+        },
+        {
+            "name": "MC Launcher",
+            "desc": "Minecraft launcher in VB.NET",
+            "details": "mc_launcher",
+            "icon": "/static/icons/mc_launcher.png"
+        },
+        {
+            "name": "RuntimeSharp",
+            "desc": "Utility to run C# code on the fly",
+            "details": "rsharp",
+            "icon": "/static/icons/rsharp.png"
+        }
+    ]
+}

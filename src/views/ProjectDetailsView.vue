@@ -3,31 +3,32 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { setParam } from "@/global";
 import MarkdownIt from "markdown-it";
-import Projects from "@/assets/projects.json";
+import Data from "@/assets/projects.json";
 
 const route = useRoute();
 
 const projectId = route.query.pid;
-const project = Projects[projectId] || {};
+const projectWork = route.query.work == 1 ? "work" : "project";
+const project = Data[projectWork][projectId] || {};
 const projectExists = Object.keys(project).length != 0;
 
 const markdownSource = ref(null);
 
 onMounted(() => {
-    const projectBanner = document.getElementsByClassName("project-head-banner")[0];
+    const projectBanner = document.querySelector(".project-head-banner");
     if (projectBanner != undefined) {
         projectBanner.addEventListener("load", () => {
             projectBanner.setAttribute("style", "display: block;");
-            projectBanner.parentNode.getElementsByClassName("project-banner-placeholder")[0]
+            projectBanner.parentNode.querySelector(".project-banner-placeholder")
                                     .setAttribute("style", "display: none;");
         });
     }
 
-    const projectIcon = document.getElementsByClassName("project-head-icon")[0];
+    const projectIcon = document.querySelector(".project-head-icon");
     if (projectIcon != undefined) {
         projectIcon.addEventListener("load", () => {
             projectIcon.setAttribute("style", "display: block;");
-            projectIcon.parentNode.getElementsByClassName("project-icon-placeholder")[0]
+            projectIcon.parentNode.querySelector(".project-icon-placeholder")
                                   .setAttribute("style", "display: none;");
         });
     }
@@ -35,7 +36,7 @@ onMounted(() => {
     const container = document.getElementById("container");
 
     if (projectExists) {
-        import(`@/assets/markdown/${project.details}.project.md`).then(module => {
+        import(`@/assets/markdown/${project.details}.${projectWork}.md`).then(module => {
             markdownSource.value = module.default;
         }).catch(err => {
             markdownSource.value = "";
@@ -43,12 +44,14 @@ onMounted(() => {
         }).finally(() => {
             container.style.alignItems = "start";
         });
+
+        setParam("globalPageTitle", project.name);
     }
 });
 
 const renderer = new MarkdownIt({
-     html: true
- });
+    html: true
+});
 
 setParam("globalNavigation", true);
 </script>
@@ -70,7 +73,7 @@ setParam("globalNavigation", true);
                 <h1>{{ project.name }}</h1>
             </div>
             <div class="project" v-show="markdownSource != null">
-                <svg class="project-banner-svg">
+                <svg class="project-banner-svg" v-if="project.banner">
                     <defs>
                         <rect id="rounded" rx="128" width="240" height="240" x="32" y="100" />
                         <clipPath id="rounded-clip">
@@ -127,7 +130,7 @@ setParam("globalNavigation", true);
     max-width: 960px;
     width: 85vw;
 
-    border-radius: 32px;
+    border-radius: 16px;
     margin: 32px;
     padding-bottom: 16px;
     background-color: $backgroundColor;
@@ -138,5 +141,9 @@ setParam("globalNavigation", true);
     height: 175px;
     overflow: hidden;
     border-radius: 32px 32px 0 0;
+}
+
+.markdown {
+    padding-top: 16px;
 }
 </style>

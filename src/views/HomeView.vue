@@ -1,10 +1,17 @@
 <script setup>
-import Social from "@/components/social.vue";
+import Social from "@/components/Social.vue";
 
-import { RouterLink } from 'vue-router';
+import { ref } from "vue";
+import { useRouter, RouterLink } from 'vue-router';
 import { setParam } from "@/global";
 
+const router = useRouter();
+const routes = ref(
+    router.getRoutes().filter(x => x.name != "Home" && x.meta.inNavbar)
+)
+
 setParam("globalNavigation", false);
+setParam("globalPageTitle", null);
 </script>
 
 <template>
@@ -15,10 +22,9 @@ setParam("globalNavigation", false);
                 <p class="description">is a french developer!</p>
             </RouterLink>
             <div class="navbar">
-                <RouterLink to="/blogs">Blogs</RouterLink>
-                <RouterLink to="/projects">Projects</RouterLink>
-                <RouterLink to="/services">Services</RouterLink>
-                <RouterLink to="/about">About</RouterLink>
+                <RouterLink :to="item.path" v-for="item in routes">
+                    {{ item.name }}
+                </RouterLink>
             </div>
             <Social />
         </div>

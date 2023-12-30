@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { setParam } from "@/global";
+
 import Blogs from "@/assets/blogs.json";
 import MarkdownIt from "markdown-it";
 
@@ -25,6 +26,8 @@ onMounted(() => {
         }).finally(() => {
             container.style.alignItems = "start";
         });
+
+        setParam("globalPageTitle", blog.title);
     }
 });
 

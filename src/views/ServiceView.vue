@@ -1,6 +1,8 @@
 <script setup>
 import { setParam, getParam } from "@/global";
+
 setParam("globalNavigation", true);
+setParam("globalPageTitle", "Services");
 </script>
 
 <template>

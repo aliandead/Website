@@ -21,18 +21,14 @@
 <style scoped lang="scss">
 @import "@/styles/common.scss";
 
-.social {
-    margin: 16px;
-}
-
 .social a {
     margin-left: 8px;
     margin-right: 8px;
 }
 
 .social a svg {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   fill: white;
   transition: $transitionDuration;
 }

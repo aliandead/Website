@@ -12,15 +12,15 @@
         "tags":["Alian/DEAD","1st Anniversary"]
     },
     {
-        "title": "Game Nightmare (NOT FINISHED)",
-        "desc": "(They wanted to sue me)",
-        "details": "game_nightmare",
-        "tags":["UNDEAD"]
-    },
-    {
-        "title": "Website Update ('Snow Way')",
+        "title": "Snow Way: Website Update",
         "desc": "Changes I've made!",
         "details": "ver_snow_way",
+        "tags":["Liam/DEV", "Website"]
+    },
+    {
+        "title": "Towards the Unknown Future: Website Update",
+        "desc": "Last changes I've made before 2024!",
+        "details": "ver_future",
         "tags":["Liam/DEV", "Website"]
     }
 ]

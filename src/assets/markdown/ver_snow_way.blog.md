@@ -7,8 +7,8 @@ It was somewhat easy to fix, I just had to change one line (Most of the times it
 
 # MINOR CHANGES
 Here are some minor changes I've made to the website:
- - New background (<u>Highway At Night</u> by Billy Woodford)
+ - New background (*Highway At Night* by Billy Woodford)
  - Particles are now falling down instead of going up
  - Some texts have now lighter colors
 
-<p class="meta-info"> Written by Liam (📸) | Updated on 6/12/23</p>
+<p class="meta-info"> Written by Liam | Updated on 30/12/23</p>

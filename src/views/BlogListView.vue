@@ -13,6 +13,7 @@ onMounted(() => {
 });
 
 setParam("globalNavigation", true);
+setParam("globalPageTitle", "Blogs");
 </script>
 
 <template>
