@@ -65,7 +65,5 @@ setParam("globalPageTitle", "About");
     font-size: 24px;
     font-style: italic;
     margin-bottom: 16px;
-
-    //width: ;
 }
 </style>
