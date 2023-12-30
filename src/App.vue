@@ -97,8 +97,8 @@ const onUpdate = () => {
     </div>
     <div id="mobile-navbar-mask">
       <ul id="mobile-navbar-items">
-        <li :to="item.path" v-for="item in routes">
-          <RouterLink to="/">{{ item.name }}</RouterLink>
+        <li v-for="item in routes">
+          <RouterLink :to="item.path">{{ item.name }}</RouterLink>
         </li>
       </ul>
     </div>
