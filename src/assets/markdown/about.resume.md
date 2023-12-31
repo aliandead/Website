@@ -36,7 +36,7 @@ I'm following the classic "K-12" education. There are 3 years of High School in 
         - Socket
 - Web Development
     - Static (HTML, CSS and JS)
-    - Vue.JS (with SASS)
+    - Vue.js (with SASS)
 - Cybersecurity
     - Cryptography
         - Hashing
@@ -69,6 +69,8 @@ I'm following the classic "K-12" education. There are 3 years of High School in 
     - Visual Studio Code
     - IntelliJ IDEA
     - Android Sutdio
+- Others
+    - Discord Bot Development (Node.js)
 
 <br>
 
