@@ -117,12 +117,6 @@ const onUpdate = () => {
   </div>
 </template>
 
-<style lang="scss">
-#home-container .logo {
-  align-self: initial;
-}
-</style>
-
 <style scoped lang="scss">
 @import "@/styles/common.scss";
 
