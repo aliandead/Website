@@ -46,6 +46,7 @@ I'm following the classic "K-12" education. There are 3 years of High School in 
             - AES
         - Asymmetric-key
             - RSA
+        - Salt
 - Databases
     - SQL
 - Desktop App Development
