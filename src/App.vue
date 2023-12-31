@@ -102,6 +102,7 @@ const onUpdate = () => {
         </li>
       </ul>
     </div>
+    <img v-show="!webGlobalNavigation" class="logo" src="/static/liam_full.png">
     <RouterView @vue:updated="onUpdate" />
     <div class="footer" v-show="webGlobalFooter">
       <RouterLink to="/legal">Legal</RouterLink>
@@ -116,6 +117,12 @@ const onUpdate = () => {
   </div>
 </template>
 
+<style lang="scss">
+#home-container .logo {
+  align-self: initial;
+}
+</style>
+
 <style scoped lang="scss">
 @import "@/styles/common.scss";
 
@@ -127,6 +134,13 @@ const onUpdate = () => {
 
 #container {
   flex: 1;
+}
+
+.logo {
+  position: absolute;
+  margin: 24px;
+  align-self: center;
+  width: 7%;
 }
 
 #home-container {
