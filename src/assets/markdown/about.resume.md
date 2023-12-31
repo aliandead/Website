@@ -33,6 +33,7 @@ I'm following the classic "K-12" education. There are 3 years of High School in 
         - HTTP/HTTPS
         - TCP/UDP
         - RakNet
+        - Socket
 - Web Development
     - Static (HTML, CSS and JS)
     - Vue.JS (with SASS)
