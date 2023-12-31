@@ -140,7 +140,7 @@ const onUpdate = () => {
   position: absolute;
   margin: 24px;
   align-self: center;
-  width: 7%;
+  width: 96px;
 }
 
 #home-container {
