@@ -67,6 +67,10 @@ setParam("globalPageTitle", "Projects");
     justify-content: center;
 }
 
+.content {
+    min-width: 0;
+}
+
 .title {
     color: $titleColor;
     text-align: center;
@@ -80,24 +84,29 @@ setParam("globalPageTitle", "Projects");
 }
 
 .card-container {
-    padding: 30px;
+    padding: 32px;
     background-color: $backgroundColor;
     border-radius: 32px;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
     max-width: 1039px;
     width: 90vw;
     gap: 2rem;
     margin-bottom: 16px;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1170px) {
     .card-container {
         justify-content: center;
         max-width: initial;
         width: initial;
         margin: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card-container {
+        margin: 4px;
     }
 }
 </style>
