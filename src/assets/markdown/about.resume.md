@@ -28,11 +28,11 @@ I'm following the classic "K-12" education. There are 3 years of High School in 
     - macOS
     - Android
 - Networking
-- Protocols
-    - IP
-    - HTTP/HTTPS
-    - TCP/UDP
-    - RakNet
+    - Protocols
+        - IP
+        - HTTP/HTTPS
+        - TCP/UDP
+        - RakNet
 - Web Development
     - Static (HTML, CSS and JS)
     - Vue.JS (with SASS)
